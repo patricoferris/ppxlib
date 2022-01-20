@@ -15,6 +15,7 @@ let all =
     (4, 12);
     (4, 13);
     (4, 14);
+    (5, 00);
   ]
 
 let to_string (a, b) = Printf.sprintf "%d.%02d" a b
