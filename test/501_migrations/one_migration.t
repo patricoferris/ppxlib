@@ -4,7 +4,7 @@ test checks whether parsing on 5.0.0 (result of test running on 5.0.0) is the sa
 parsing on 5.1.0 and then migrating down to 5.0.0 (result of test running on 5.1.0).
 
 The test is mostly useful for debuggung problems in a full round-trip. Since Ppxlib's
-`dparsetree` option doesn't compactify or strip locations, its output is very long.
+`pp-simple` option doesn't compactify or strip locations, its output is very long.
 So let's only keep one example.
 
   $ echo "let x : int = 5" > file.ml
@@ -89,6 +89,7 @@ So let's only keep one example.
   > module F () = struct end
   > module M = F ()
   > EOF
+
   $ ./identity_driver.exe -dparsetree file.ml
   [ Pstr_attribute
       { attr_name = "ocaml.ppx.context"
