@@ -428,6 +428,7 @@ end) : S = struct
   let ptyp_poly vars ty = Default.ptyp_poly ~loc vars ty
   let pexp_apply e el = Default.pexp_apply ~loc e el
   let pexp_fun lbl e1 p e2 = Default.pexp_fun ~loc lbl e1 p e2
+  let pexp_function_cases cases = Default.pexp_function_cases ~loc cases
   let eint t = Default.eint ~loc t
   let echar t = Default.echar ~loc t
   let estring t = Default.estring ~loc t

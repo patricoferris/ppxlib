@@ -56,17 +56,6 @@ module Default : sig
   val ppat_construct :
     loc:location -> longident loc -> pattern option -> pattern
 
-  val pexp_function :
-    loc:location ->
-    function_param list ->
-    type_constraint option ->
-    function_body ->
-    expression
-
-  val pexp_function_cases : loc:location -> Import.cases -> expression
-  (** [pexp_function_cases] builds an expression in the shape
-      [function C1 -> E1 | ...]. *)
-
   val coalesce_arity : expression -> expression
   (** [coalesce_arity e] will produce a maximum arity function from an
       expression.
