@@ -5,13 +5,15 @@ regardless of ppxlib's internal AST version.
 If we run the driver on the following source file:
 
   $ cat > test.ml << EOF
-  > let () = NonExistingModule.foo () 
+  > let () = NonExistingModule.foo ()
   > EOF
 
 then the non-existing module should have a sensible error location.
 
   $ ocamlc -ppx "./driver.exe --as-ppx" test.ml test.ml.pp
-  File "_none_", line 1:
+  File "test.ml", line 1, characters 9-26:
+  1 | let () = NonExistingModule.foo ()
+               ^^^^^^^^^^^^^^^^^
   Error: Unbound module NonExistingModule
   [2]
 
@@ -22,7 +24,9 @@ Another longident usage:
   > EOF
 
   $ ocamlc -ppx "./driver.exe --as-ppx" test.ml test.ml.pp
-  File "_none_", line 1:
+  File "test.ml", line 1, characters 10-20:
+  1 | let t = { ThisModule.age = 43 }
+                ^^^^^^^^^^
   Error: Unbound module ThisModule
   [2]
- 
+
